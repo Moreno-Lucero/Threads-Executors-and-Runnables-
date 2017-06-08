@@ -1,0 +1,24 @@
+package ThreadsExecutorsRunnables;
+
+/**
+ * Created by luceromoreno on 6/7/17.
+ */
+public class Run implements Runnable{
+
+    private String prog;
+    private int end;
+    public Run(String execute, int end)
+    {
+        this.prog = execute;
+        this.end = end;
+    }
+    public void run()
+    {
+        System.out.println(prog+" has executed");
+        for (int i=0; i<end; i++)
+        {
+            try{Thread.sleep(1000);}catch(Exception e){}
+        }
+        System.out.println(prog+" has ended");
+    }
+}
