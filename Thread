@@ -1,0 +1,55 @@
+package ThreadsExecutorsRunnables;
+
+/**
+ * Created by luceromoreno on 6/7/17.
+ */
+
+public class Threads {
+
+    public static void main(String[] args) {
+
+        Firstth thread = new Firstth();
+        thread.start();
+
+        Secondth lets = new Secondth();
+        Thread one = new Thread(lets);
+
+        //New Thread
+        Thread two = new Thread(lets);
+        Thread three= new Thread(lets);
+        Thread four = new Thread(lets);
+        Thread five = new Thread(lets);
+        one.setName("Why am I first");
+        two.setName("Why am I fifth");
+        three.setName("Why am I fourth");
+        four.setName("Why am I third");
+        five.setName("Why am I second");
+        one.start();
+        two.start();
+        three.start();
+        four.start();
+        five.start();
+
+    }
+
+}
+
+class Firstth extends Thread{
+    public void run(){
+        System.out.println("This is weird:");
+    }
+}
+
+class Secondth implements Runnable{
+
+    @Override
+    public synchronized void run() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName()+ "?");
+
+    }
+}
