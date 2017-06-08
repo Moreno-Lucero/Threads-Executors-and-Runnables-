@@ -1,0 +1,21 @@
+package ThreadsExecutorsRunnables;
+
+/**
+ * Created by luceromoreno on 6/7/17.
+ */
+import java.util.concurrent.*;
+
+
+public class Grades {
+
+    public static void main(String[]args){
+        Teacher racer = new Teacher();
+        Thread stu1Thread = new Thread(racer,"Student 1");
+        Thread stu2Thread = new Thread(racer,"Student 2");
+
+        //Race to start, tell threads to start
+
+        stu1Thread.start();
+        stu2Thread.start();
+    }
+}
