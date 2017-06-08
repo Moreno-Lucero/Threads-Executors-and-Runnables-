@@ -1,0 +1,43 @@
+package ThreadsExecutorsRunnables;
+
+/**
+ * Created by luceromoreno on 6/7/17.
+ */
+
+public class Teacher implements Runnable {
+
+    public static String student;
+    public void test(){
+
+        for(int grade=1;grade<=10;grade++){
+            System.out.println(Thread.currentThread().getName()+" got number "+ grade +" right ");
+
+            boolean ifPassed = this.ifPassed(grade);
+            if(ifPassed){
+                break;
+            }
+        }
+
+    }
+
+    private boolean ifPassed(int pass){
+        boolean ifPassed = false;
+        if((Teacher.student==null)&&(pass==10)){
+            String passName=Thread.currentThread().getName();
+            Teacher.student=passName;
+            System.out.println("You passed!");
+            ifPassed=true;
+        }
+        else if(Teacher.student==null){
+            ifPassed=false;
+        }
+        else if(Teacher.student==null){
+            ifPassed=true;
+        }
+        return ifPassed;
+    }
+    @Override
+    public void run(){
+        this.test();
+    }
+}
