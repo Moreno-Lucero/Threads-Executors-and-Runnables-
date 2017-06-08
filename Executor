@@ -1,0 +1,21 @@
+# Threads-Executors-and-Runnables
+package ThreadsExecutorsRunnables;
+import java.util.concurrent.*;
+
+/**
+ * Created by luceromoreno on 6/7/17.
+ */
+public class Executor {
+    public static void main(String args[]){
+
+    ExecutorService pool = Executors.newFixedThreadPool(2);
+    Run []wha = { new Run("Program 1", 1),
+            new Run("Program 2", 2),
+            new Run("Program 3", 3),
+            new Run("Program 4", 4)};
+		for(int i=0; i<wha.length; i++)
+    {
+        pool.submit(wha[i]);
+    }
+}
+}
